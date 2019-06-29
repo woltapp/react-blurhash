@@ -12,6 +12,16 @@ type Props = React.HTMLAttributes<HTMLDivElement> & {
   width?: number;
 };
 
+const canvasStyle: React.CSSProperties = {
+  position: 'absolute',
+  top: 0,
+  bottom: 0,
+  left: 0,
+  right: 0,
+  width: '100%',
+  height: '100%',
+};
+
 export default class Blurhash extends React.PureComponent<Props> {
   static defaultProps = {
     height: 128,
@@ -40,15 +50,7 @@ export default class Blurhash extends React.PureComponent<Props> {
           height={resolutionY}
           width={resolutionX}
           punch={punch}
-          style={{
-            position: 'absolute',
-            top: 0,
-            bottom: 0,
-            left: 0,
-            right: 0,
-            width: '100%',
-            height: '100%',
-          }}
+          style={canvasStyle}
         />
       </div>
     );
