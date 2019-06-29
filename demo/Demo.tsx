@@ -4,6 +4,10 @@ import styled from 'styled-components';
 import { isBlurhashValid } from 'blurhash';
 
 import { Blurhash, BlurhashCanvas } from '../src';
+import RadioInput from './RadioInput';
+import RangeInput from './RangeInput';
+import Setting from './Setting';
+import BlurhashImageEncoder from './BlurhashImageEncoder';
 
 const Root = styled.div`
   margin: 0 auto;
@@ -48,61 +52,35 @@ const SettingsContainer = styled.div`
   border-radius: 4px;
 `;
 
-const SettingLabel = styled.div`
-  width: 100px;
-  white-space: pre;
-  font-size: 0.9em;
-  font-family: monospace, monospace;
-`;
-
-const SettingValue = styled.div`
-  margin-left: 8px;
-  white-space: pre;
-  font-size: 0.9em;
-  font-family: monospace, monospace;
-`;
-
-const SettingRoot = styled.div`
-  display: flex;
-
-  & + & {
-    margin-top: 10px;
-  }
-`;
-
 const BlurhashContainer = styled.div`
   margin-top: 18px;
-`;
-
-const Setting = ({
-  children,
-  label,
-  value,
-}: {
-  children: React.ReactNode;
-  label: string;
-  value: React.ReactNode;
-}) => (
-  <SettingRoot>
-    <SettingLabel>{label}</SettingLabel>
-    {children}
-    <SettingValue>{value}</SettingValue>
-  </SettingRoot>
-);
-
-const RangeInput = styled.input.attrs({ type: 'range' })`
-  width: 300px;
 `;
 
 const TextInput = styled.input.attrs({ type: 'test' })`
   white-space: pre;
   font-size: 1em;
-  font-family: monospace, monospace;
+  font-family: monospace;
   padding: 8px;
   border-radius: 4px;
   border: 2px solid #8ab7ea;
   width: 100%;
   box-sizing: border-box;
+`;
+
+const ModeSelect = styled.div`
+  margin: 15px 0;
+`;
+
+const StyledRadioInput = styled(RadioInput)`
+  & + & {
+    margin-left: 14px;
+  }
+`;
+
+const Hint = styled.div`
+  font-size: 0.8em;
+  color: #999;
+  margin: 8px 0;
 `;
 
 const BlurhashDemo = ({ hash }: { hash: string }) => {
@@ -194,15 +172,47 @@ const BlurhashCanvasDemo = ({ hash }: { hash: string }) => {
 };
 
 const Demo = () => {
-  const [hash, setHash] = useState('LEHV6nWB2yk8pyo0adR*.7kCMdnj');
-
+  const [mode, setMode] = useState<'hash' | 'image'>('hash');
+  const [hashInput, setHashInput] = useState('LEHV6nWB2yk8pyo0adR*.7kCMdnj');
+  const [encodedHash, setEncodedHash] = useState('');
+  const hash = mode === 'hash' ? hashInput : encodedHash;
   const blurhashValid = useMemo(() => isBlurhashValid(hash), [hash]);
 
   return (
     <Root>
       <Heading1>react-blurhash demo</Heading1>
       <Separator />
-      Blurhash <TextInput value={hash} onChange={e => setHash(e.target.value.trim())} />
+
+      <ModeSelect>
+        <StyledRadioInput
+          label="Blurhash string"
+          input={{
+            onChange: e => setMode(e.target.value as 'hash'),
+            value: 'hash',
+            checked: mode === 'hash',
+          }}
+        />
+        <StyledRadioInput
+          label="Encode image"
+          input={{
+            onChange: e => setMode(e.target.value as 'image'),
+            value: 'image',
+            checked: mode === 'image',
+          }}
+        />
+      </ModeSelect>
+
+      {mode === 'hash' && (
+        <TextInput value={hashInput} onChange={e => setHashInput(e.target.value.trim())} />
+      )}
+
+      {mode === 'image' && (
+        <>
+          <Hint>Note: encoding is done in the browser only (no server involved)!</Hint>
+          <BlurhashImageEncoder onChange={hash => setEncodedHash(hash)} value={encodedHash} />
+        </>
+      )}
+
       {hash && !blurhashValid.result && (
         <BlurhashError>
           <strong>Invalid blurhash</strong> - {blurhashValid.errorReason}
