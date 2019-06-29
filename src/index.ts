@@ -1,1 +1,1 @@
-export { default } from './Blurhash';
+export { default as BlurhashCanvas } from './BlurhashCanvas';
