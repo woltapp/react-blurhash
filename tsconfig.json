@@ -10,6 +10,7 @@
     "alwaysStrict": true,
     "noImplicitAny": true,
     "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
     "jsx": "react"
   },
   "include": ["src"]
