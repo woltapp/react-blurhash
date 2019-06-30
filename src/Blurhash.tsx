@@ -44,7 +44,10 @@ export default class Blurhash extends React.PureComponent<Props> {
     const { hash, height, width, punch, resolutionX, resolutionY, style, ...rest } = this.props;
 
     return (
-      <div {...rest} style={{ ...style, height, width, position: 'relative' }}>
+      <div
+        {...rest}
+        style={{ display: 'inline-block', ...style, height, width, position: 'relative' }}
+      >
         <BlurhashCanvas
           hash={hash}
           height={resolutionY}
