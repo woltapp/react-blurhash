@@ -56,15 +56,27 @@ const BlurhashContainer = styled.div`
   margin-top: 18px;
 `;
 
-const TextInput = styled.input.attrs({ type: 'test' })`
+const TextInput = styled.input.attrs({
+  type: 'test',
+  autoComplete: 'off',
+  autoCapitalize: 'off',
+  autoCorrect: 'off',
+  spellCheck: false,
+})`
   white-space: pre;
   font-size: 1em;
   font-family: monospace;
   padding: 8px;
   border-radius: 4px;
-  border: 2px solid #8ab7ea;
+  border: 2px solid #d8d8d8;
   width: 100%;
   box-sizing: border-box;
+
+  outline: none;
+
+  &:focus {
+    border-color: #8ab7ea;
+  }
 `;
 
 const ModeSelect = styled.div`
@@ -218,6 +230,7 @@ const Demo = () => {
           <strong>Invalid blurhash</strong> - {blurhashValid.errorReason}
         </BlurhashError>
       )}
+
       {blurhashValid.result && (
         <>
           <Separator />

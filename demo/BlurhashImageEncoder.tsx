@@ -6,10 +6,12 @@ import FileInput from './FileInput';
 import Setting from './Setting';
 import RangeInput from './RangeInput';
 
-const StyledFileInput = styled(FileInput)`
+const Root = styled.div`
   border: 1px solid #e4e4e4;
   border-radius: 4px;
 `;
+
+const StyledFileInput = styled(FileInput)``;
 
 const ImagePreviewContainer = styled.div`
   position: relative;
@@ -39,17 +41,28 @@ const ImageFileName = styled.span`
 `;
 
 const Settings = styled.div`
-  margin: 15px 0;
+  border-top: 1px solid #e4e4e4;
+  padding: 15px;
+`;
+
+const BlurhashResultContainer = styled.div`
+  padding: 15px;
+  border-top: 1px solid #e4e4e4;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+`;
+
+const Heading3 = styled.h3`
+  font-weight: 600;
+  font-size: 1em;
+  color: 777;
+  margin: 0 0 10px 0;
 `;
 
 const ResultBlurhash = styled.div`
   overflow-wrap: break-word;
-  font-size: 1em;
+  font-size: 1.05em;
   font-family: monospace;
-  padding: 8px;
-  border-radius: 4px;
-  background-color: #f4f4f4;
-  border: 1px solid #e4e4e4;
   width: 100%;
   box-sizing: border-box;
 `;
@@ -129,7 +142,7 @@ const BlurhashImageEncoder: React.FunctionComponent<Props> = ({ onChange }) => {
   }, []);
 
   return (
-    <div>
+    <Root>
       <StyledFileInput onChange={handleFileChange} showText={!data}>
         <ImagePreviewContainer>
           {!!data && (
@@ -142,6 +155,8 @@ const BlurhashImageEncoder: React.FunctionComponent<Props> = ({ onChange }) => {
       </StyledFileInput>
 
       <Settings>
+        <Heading3>Encoding settings</Heading3>
+
         <Setting label="X components" value={componentX}>
           <RangeInput
             min="1"
@@ -161,8 +176,14 @@ const BlurhashImageEncoder: React.FunctionComponent<Props> = ({ onChange }) => {
         </Setting>
       </Settings>
 
-      {!!blurhash && <ResultBlurhash>{blurhash}</ResultBlurhash>}
-    </div>
+      {!!blurhash && (
+        <BlurhashResultContainer>
+          <Heading3>Blurhash result</Heading3>
+
+          <ResultBlurhash>{blurhash}</ResultBlurhash>
+        </BlurhashResultContainer>
+      )}
+    </Root>
   );
 };
 
