@@ -2,6 +2,8 @@
 
 > React component for using the [blurhash algorithm](https://blurha.sh)
 
+[See demo](https://woltapp.github.io/react-blurhash/)
+
 ## Install
 
 ```sh

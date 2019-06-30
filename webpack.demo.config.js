@@ -7,6 +7,10 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
+  output: {
+    path: path.resolve(__dirname, 'docs'),
+    filename: 'demo.[hash].js',
+  },
   devtool: 'inline-source-map',
   module: {
     rules: [
