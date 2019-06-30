@@ -95,6 +95,49 @@ const Hint = styled.div`
   margin: 8px 0;
 `;
 
+const Footer = styled.footer`
+  border-top: 1px solid #f2f2f2;
+  margin-top: 40px;
+  padding: 15px 10px;
+  text-align: center;
+  font-size: 0.9em;
+
+  ul {
+    list-style: none;
+    white-space: nowrap;
+  }
+
+  li {
+    position: relative;
+    display: inline;
+  }
+
+  li + li {
+    margin-left: 24px;
+  }
+
+  li + li:after {
+    position: absolute;
+    top: 0px;
+    left: -15px;
+    content: '·';
+    color: #c8c8c8;
+  }
+
+  a {
+    color: #c8c8c8;
+    text-decoration: none;
+
+    &:hover {
+      color: #3d50ff;
+    }
+
+    &:active {
+      color: #041ae5;
+    }
+  }
+`;
+
 const BlurhashDemo = ({ hash }: { hash: string }) => {
   const [size, setSize] = useState(256);
   const [resolution, setResolution] = useState(32);
@@ -243,9 +286,28 @@ const Demo = () => {
             <Code>{'<BlurhashCanvas />'}</Code>
           </Heading2>
           <BlurhashCanvasDemo hash={hash} />
-          <Separator />
         </>
       )}
+
+      <Footer>
+        <ul>
+          <li>
+            <a href="https://github.com/woltapp/react-blurhash" target="_blank">
+              react-blurhash
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/woltapp/blurhash/tree/master/TypeScript" target="_blank">
+              Blurhash TypeScript
+            </a>
+          </li>
+          <li>
+            <a href="https://blurha.sh" target="_blank">
+              Blurhash website
+            </a>
+          </li>
+        </ul>
+      </Footer>
     </Root>
   );
 };
