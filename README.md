@@ -28,15 +28,14 @@ It uses `BlurhashCanvas` and a wrapping `div` to scale the decoded image to your
 
 #### Props
 
-| name                | description                                                                                                                                                                  |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hash` (string)     | The encoded blurhash string.                                                                                                                                                 |
-| `width` (int)       | Width of the decoded image.                                                                                                                                                  |
-| `height` (int)      | Height of the decoded image.                                                                                                                                                 |
-| `resolutionX` (int) | The X-axis resolution in which the decoded image will be rendered at. Recommended min. 32px. Large sizes (>128px) will greatly decrease rendering performance. (Default: 32) |
-| `resolutionY` (int) | The Y-axis resolution in which the decoded image will be rendered at. Recommended min. 32px. Large sizes (>128px) will greatly decrease rendering performance. (Default: 32) |
-|                     |
-| `punch` (int)       | Controls the "punch" value (~contrast) of the blurhash decoding algorithm. (Default: 1)                                                                                      |
+| name                     | description                                                                                                                                                                  |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `hash` (string)          | The encoded blurhash string.                                                                                                                                                 |
+| `width` (int \| string)  | Width (CSS) of the decoded image.                                                                                                                                            |
+| `height` (int \| string) | Height (CSS) of the decoded image.                                                                                                                                           |
+| `resolutionX` (int)      | The X-axis resolution in which the decoded image will be rendered at. Recommended min. 32px. Large sizes (>128px) will greatly decrease rendering performance. (Default: 32) |
+| `resolutionY` (int)      | The Y-axis resolution in which the decoded image will be rendered at. Recommended min. 32px. Large sizes (>128px) will greatly decrease rendering performance. (Default: 32) |
+| `punch` (int)            | Controls the "punch" value (~contrast) of the blurhash decoding algorithm. (Default: 1)                                                                                      |
 
 #### Example
 

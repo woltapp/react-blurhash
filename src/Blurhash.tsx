@@ -4,12 +4,14 @@ import BlurhashCanvas from './BlurhashCanvas';
 
 type Props = React.HTMLAttributes<HTMLDivElement> & {
   hash: string;
-  height?: number;
+  /** CSS height, default: 128 */
+  height?: number | string | 'auto';
   punch?: number;
   resolutionX?: number;
   resolutionY?: number;
   style?: React.CSSProperties;
-  width?: number;
+  /** CSS width, default: 128 */
+  width?: number | string | 'auto';
 };
 
 const canvasStyle: React.CSSProperties = {
@@ -46,7 +48,7 @@ export default class Blurhash extends React.PureComponent<Props> {
     return (
       <div
         {...rest}
-        style={{ display: 'inline-block', ...style, height, width, position: 'relative' }}
+        style={{ display: 'inline-block', height, width, ...style, position: 'relative' }}
       >
         <BlurhashCanvas
           hash={hash}
