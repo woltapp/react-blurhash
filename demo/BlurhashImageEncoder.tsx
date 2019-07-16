@@ -88,6 +88,23 @@ const getClampedSize = (
   return { width, height };
 };
 
+const loadImage = async (src: string): Promise<HTMLImageElement> =>
+  new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = (...args) => reject(args);
+    img.src = src;
+  });
+
+const getImageData = (image: HTMLImageElement, resolutionX: number, resolutionY: number) => {
+  const canvas = document.createElement('canvas');
+  canvas.width = resolutionX;
+  canvas.height = resolutionY;
+  const context = canvas.getContext('2d');
+  context.drawImage(image, 0, 0, resolutionX, resolutionY);
+  return context.getImageData(0, 0, resolutionX, resolutionY);
+};
+
 const BlurhashImageEncoder: React.FunctionComponent<Props> = ({ onChange }) => {
   const [data, setData] = useState<
     { file: File; imageUrl: string; imageData: ImageData } | undefined
@@ -116,26 +133,9 @@ const BlurhashImageEncoder: React.FunctionComponent<Props> = ({ onChange }) => {
     const imageUrl = URL.createObjectURL(file);
 
     (async () => {
-      const img = new Image();
-
-      img.src = imageUrl;
-
-      await new Promise(resolve => {
-        img.onload = () => {
-          resolve();
-        };
-      });
-
+      const img = await loadImage(imageUrl);
       const clampedSize = getClampedSize(img.width, img.height, 64);
-
-      const canvas = document.createElement('canvas');
-      canvas.width = clampedSize.width;
-      canvas.height = clampedSize.height;
-
-      const context = canvas.getContext('2d');
-      context.drawImage(img, 0, 0, clampedSize.width, clampedSize.height);
-
-      const imageData = context.getImageData(0, 0, clampedSize.width, clampedSize.height);
+      const imageData = getImageData(img, clampedSize.width, clampedSize.height);
 
       setData({ file, imageUrl, imageData });
     })();
