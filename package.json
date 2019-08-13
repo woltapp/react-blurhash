@@ -11,7 +11,7 @@
   },
   "homepage": "https://blurha.sh",
   "main": "lib/index.js",
-  "types": "lib/index.t.js",
+  "types": "lib/index.d.ts",
   "module": "es/index.js",
   "scripts": {
     "prepublishOnly": "npm run build",
