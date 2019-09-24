@@ -23,7 +23,7 @@ import { Blurhash } from "react-blurhash";
 
 ### Description
 
-`Blurhash` component is the recommended way to render blurashes in your React projects.
+`Blurhash` component is the recommended way to render blurhashes in your React projects.
 It uses `BlurhashCanvas` and a wrapping `div` to scale the decoded image to your desired size. You may control the quality of the decoded image with `resolutionX` and `resolutionY` props.
 
 #### Props
