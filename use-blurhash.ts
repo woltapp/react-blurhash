@@ -7,6 +7,8 @@ function useBlurhash (blurhash: string, width: number, height: number, punch: nu
   const [url, setUrl] = useState(null as string | null)
 
   useEffect(() => {
+    let isCancelled = false
+
     // decode hash
     const pixels = decode(blurhash, width, height, punch)
 
@@ -19,17 +21,24 @@ function useBlurhash (blurhash: string, width: number, height: number, punch: nu
     imageData.data.set(pixels)
     context!.putImageData(imageData, 0, 0)
     canvas.toBlob(blob => {
-      if (url) {
-        URL.revokeObjectURL(url)
+      if (!isCancelled) {
+        setUrl(oldUrl => {
+          if (oldUrl) {
+            URL.revokeObjectURL(oldUrl)
+          }
+          return URL.createObjectURL(blob)
+        })
       }
-      setUrl(URL.createObjectURL(blob))
     })
 
     return function cleanupBlurhash () {
-      if (url) {
-        URL.revokeObjectURL(url)
-        setUrl(null)
-      }
+      isCancelled = true
+      setUrl(oldUrl => {
+        if (oldUrl) {
+          URL.revokeObjectURL(oldUrl)
+        }
+        return null
+      })
     }
   }, [blurhash, height, width, punch])
 
