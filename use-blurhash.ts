@@ -10,7 +10,7 @@ function useBlurhash (blurhash: string, width: number, height: number, punch: nu
     // decode hash
     const pixels = decode(blurhash, width, height, punch)
 
-    // temporary canvas to create a blog from decoded ImageData
+    // temporary canvas to create a blob from decoded ImageData
     const canvas = document.createElement('canvas')
     canvas.width = width
     canvas.height = height
