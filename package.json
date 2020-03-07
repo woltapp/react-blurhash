@@ -1,6 +1,6 @@
 {
   "name": "react-blurhash",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Blurhash implementation for React",
   "keywords": ["blurhash", "blur", "hash", "image", "react", "component"],
   "license": "MIT",
