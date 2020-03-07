@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { decode } from 'blurhash';
 
 export type Props = React.CanvasHTMLAttributes<HTMLCanvasElement> & {
