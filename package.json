@@ -12,9 +12,8 @@
   "homepage": "https://blurha.sh",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "module": "es/index.js",
   "scripts": {
-    "prepare": "npm run build",
+    "prepare": "npm run build:lib",
     "prepublishOnly": "npm run build",
     "build": "npm run build:es && npm run build:lib",
     "build:demo": "rm -rf ./docs && webpack -p --config webpack.demo.config.js",
