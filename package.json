@@ -30,21 +30,21 @@
     "react": ">=15"
   },
   "devDependencies": {
-    "@types/prop-types": "^15.7.1",
-    "@types/react": "^16.8.22",
-    "@types/react-dom": "^16.8.4",
-    "@types/styled-components": "^4.1.16",
+    "@types/prop-types": "^15.7.3",
+    "@types/react": "^16.9.53",
+    "@types/react-dom": "^16.9.8",
+    "@types/styled-components": "^5.1.4",
     "blurhash": "^1.1.2",
-    "html-webpack-plugin": "^3.2.0",
-    "prettier": "1.18.2",
+    "html-webpack-plugin": "^4.5.0",
+    "prettier": "2.1.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-hot-loader": "^4.11.1",
-    "styled-components": "^4.3.2",
-    "ts-loader": "6.0.4",
-    "typescript": "3.5.2",
-    "webpack": "4.35.0",
-    "webpack-cli": "^3.3.5",
-    "webpack-dev-server": "3.7.2"
+    "react-hot-loader": "^4.13.0",
+    "styled-components": "^5.2.0",
+    "ts-loader": "8.0.6",
+    "typescript": "4.0.3",
+    "webpack": "4.44.2",
+    "webpack-cli": "3.3.12",
+    "webpack-dev-server": "3.11.0"
   }
 }
