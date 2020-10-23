@@ -26,7 +26,8 @@
     "ts:watch": "npm run ts -- --noEmit --watch"
   },
   "peerDependencies": {
-    "blurhash": "^1.1.1"
+    "blurhash": "^1.1.1",
+    "react": ">=15"
   },
   "devDependencies": {
     "@types/prop-types": "^15.7.1",
