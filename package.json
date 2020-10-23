@@ -18,7 +18,7 @@
     "build": "npm run build:es && npm run build:lib",
     "build:demo": "rm -rf ./docs && webpack -p --config webpack.demo.config.js",
     "build:es": "rm -rf ./es   && npm run ts -- --module es2015   --outDir ./es",
-    "build:lib": "rm -rf ./lib && npm run ts -- --module commonjs --outDir ./lib",
+    "build:lib": "rm -rf ./lib && npm run ts -- --module commonjs --outDir ./lib --esModuleInterop true",
     "demo": "webpack-dev-server --config webpack.demo.config.js --hot --progress",
     "prettier": "prettier src/**/*.ts",
     "prettier-fix": "npm run prettier -- --write",
