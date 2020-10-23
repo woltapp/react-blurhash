@@ -32,6 +32,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       hash: false,
+      minify: false,
       filename: 'index.html',
       title: 'react-blurhash demo',
     }),
