@@ -33,7 +33,7 @@
     "ts:watch": "npm run ts -- --noEmit --watch"
   },
   "peerDependencies": {
-    "blurhash": "^1.1.1",
+    "blurhash": "^2.0.3",
     "react": ">=15"
   },
   "devDependencies": {
@@ -41,7 +41,7 @@
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
     "@types/styled-components": "^5.1.4",
-    "blurhash": "^1.1.2",
+    "blurhash": "^2.0.3",
     "html-webpack-plugin": "^4.5.0",
     "prettier": "2.1.2",
     "react": "^16.8.6",
