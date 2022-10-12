@@ -1,7 +1,8 @@
 # Changelog
 
-## HEAD
+## 0.2.0
 
+- Blurhash v2
 - Drop IE11 support
 
 ## 0.1.1 (July 1, 2019)
