@@ -688,10 +688,10 @@ bluebird@^3.5.5:
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.7.2.tgz#9f229c15be272454ffa973ace0dbee79a1b0c36f"
   integrity sha512-XpNj6GDQzdfW+r2Wnn7xiSAd7TM3jzkxGXBGTtWKuSXv1xUV+azxAm8jdWZN06QTQk+2N2XB9jRDkvbmQmcRtg==
 
-blurhash@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/blurhash/-/blurhash-1.1.2.tgz#0a106b739d212d399101b688211550db286074bc"
-  integrity sha512-W5OMsNgsLBJw2A+gL03LlN+WN36V9f0DVyzuum+dQc3iJWua/JSAz20JTweWoNAZ1KubGpCKFan1Tr6481mPQA==
+blurhash@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/blurhash/-/blurhash-2.0.3.tgz#5c1166bf5b65e09e337fe5b8c6b53e1218085b0b"
+  integrity sha512-nTnJTOheiaV3b189f7rH5AbbrnQB2r3CcOZBg47GUDaE9DrxyBPD2w0HYp4ME2UBlTP7LMIa6nMWqg/58oyIzA==
 
 bn.js@^4.0.0, bn.js@^4.1.0, bn.js@^4.4.0:
   version "4.11.9"
