@@ -2,8 +2,8 @@
   "compilerOptions": {
     "module": "commonjs",
     "moduleResolution": "node",
-    "target": "es5",
-    "lib": ["es5", "dom"],
+    "target": "es6",
+    "lib": ["esnext", "dom"],
     "declaration": true,
     "outDir": "./lib",
     "sourceMap": true,
