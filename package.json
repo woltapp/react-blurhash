@@ -10,9 +10,9 @@
     "url": "https://github.com/woltapp/react-blurhash"
   },
   "homepage": "https://blurha.sh",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "module": "es/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/esm/index.js",
   "scripts": {
     "prepublishOnly": "npm run build",
     "build": "tsup",
