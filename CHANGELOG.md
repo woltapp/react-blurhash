@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0
+
+- Use `tsup` for bundling
+
 ## 0.2.0
 
 - Blurhash v2
