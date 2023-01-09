@@ -1,4 +1,4 @@
-import { defineConfig } from 'tsup';
+import { defineConfig, build } from 'tsup';
 
 export default defineConfig([
   {
@@ -18,7 +18,7 @@ export default defineConfig([
     entry: ['./src/index.ts'],
     outDir: './es',
     format: ['esm'],
-    legacyOutput: false,
+    legacyOutput: true,
     sourcemap: true,
     clean: true,
     splitting: false,
